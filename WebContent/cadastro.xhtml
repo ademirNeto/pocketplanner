@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+	<h:form>
+	<p:panel header="Faça seu Cadastro">  
+        <h:panelGrid columns="2">  
+            
+			<h:outputText value="Nome: "/>
+			<h:inputText value="#{cadastroMB.nome}" />
+			
+			<h:outputText value="E-mail: "/>
+			<h:inputText value="#{cadastroMB.login}" />
+			
+			<h:outputText value="Senha: "/>
+			<h:inputSecret value="#{cadastroMB.senha}" />
+			
+			<h:outputText value="Confirme Senha: "/>
+			<h:inputSecret />
+            
+			<p:commandButton id="loginButton" onclick="PF('dlg1').show();" value="Salvar" action = "#{cadastroMB.salvarUsuario}"/>
+			<p:commandButton id="CadastrarButton" value="Voltar" action = "#{cadastroMB.voltar}" />
+	   </h:panelGrid>  
+    </p:panel>    
+  
+  <p:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1">  
+    <h:outputText value="cadastro realizado com sucesso!" />  
+	</p:dialog>
+  </h:form> 
+</h:body>
+</html>

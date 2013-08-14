@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+
+	<h:form>
+	<p:panel header="Cadastre seus adendos">          
+		
+		<h:panelGrid columns="2" >                     
+            <h:outputText value="Tipo da Adendo: " />  
+        <p:selectOneRadio id="options" value="null">  
+            <f:selectItem itemLabel="Crédito" itemValue="1" />  
+            <f:selectItem itemLabel="Débito" itemValue="2" />
+        </p:selectOneRadio>
+			
+		<h:inputText  />  
+        <p:commandButton id="CadastrarButton" value="Cadastrar" actionListener = "#{}" />   
+             
+        </h:panelGrid>    
+    </p:panel> 
+  </h:form> 
+</h:body>
+</html>

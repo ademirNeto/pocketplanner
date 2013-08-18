@@ -6,26 +6,23 @@
     xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>Página inicial</title>
 </h:head>
 <h:body>
 	<h:form>
-	<p:panel header="Faça seu Login">  
+	<h:outputText value = "Bem Vindo ao Pocket Planner faça seu login para acessar o sistema" />
+  	  <p:panel header="Faça seu Loguin">  
         <h:panelGrid columns="2">  
             <h:outputText value="E-mail: " />  
-            <p:inputText value="#{loginMB.login}"/> 
+            <p:inputText value="#{loginMB.login}" requerid = "true" /> 
   
             <h:outputText value="Senha: " />  
-            <p:password id="feedback" value="#{loginMB.senha}" feedback="true"/>
-            
-			<p:commandButton id="loginButton" onclick="PF('dlg1').show();" value="Entrar" action = "#{loginMB.logar}"/>
-			<p:commandButton id="CadastrarButton" value="Cadastrar" action = "#{loginMB.cadastrar}"/>
+            <p:password id="senha" value="#{loginMB.senha}" requerid = "true"/>
+            	            
+			<h:commandButton id="loginButton" value="Entrar" action = "#{loginMB.logar}"/>
+			<h:commandButton  value="Cadastrar" action = "#{loginMB.cadastrar}"/>
 	   </h:panelGrid>  
-    </p:panel>    
-  
-  <p:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1">  
-    <h:outputText value="Você será direcionado para a página de cadastro" />  
-	</p:dialog>
+    </p:panel> 
   </h:form>
 </h:body>
 </html>

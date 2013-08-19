@@ -1,6 +1,7 @@
 package dominio;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,21 +15,21 @@ import javax.persistence.Table;
 public class Usuario {
 	
 	@Id
+	@GeneratedValue
 	private Integer id;
 	private String nome;
 	private String login;
 	private String senha;
 	
-	/**
-	 * @return
-	 */
+
+	public Usuario () {
+		
+	}
+	
 	public Integer  getId() {
 		return id;
 	}
-	/**
-	 * Retorna o ID
-	 * @param id
-	 */
+
 	public void setId(Integer id) {
 		this.id = id;
 	}

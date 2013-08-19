@@ -17,6 +17,10 @@ public class Transacao {
 	@ManyToOne
 	private Usuario usuario;
 	
+	public Transacao () {
+		
+	}
+	
 
 	/**
 	 * @return the id

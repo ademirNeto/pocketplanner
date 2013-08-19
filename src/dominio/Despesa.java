@@ -1,12 +1,15 @@
 package dominio;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
 public class Despesa extends Transacao {
 
 	private String status;
+	
+	public Despesa () {
+		super ();
+	}
 
 	/**
 	 * @return the status

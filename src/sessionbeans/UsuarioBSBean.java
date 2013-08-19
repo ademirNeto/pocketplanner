@@ -3,20 +3,32 @@ package sessionbeans;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-import dao.UsuarioDAO;
+//import dao.UsuarioDAO;
 import dominio.Usuario;
+
 
 @Stateless
 public class UsuarioBSBean {
 
 	private Usuario usuarioLogado;
-	private UsuarioDAO dao;
+	//private UsuarioDAO dao;
+	
+	@PersistenceContext(unitName = "pocketplanner")
+	private EntityManager manager;
+	
+	public UsuarioBSBean () {
+		
+	}
+
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarUsuario(Usuario usuario)  throws Exception  {
 		
-		dao = new UsuarioDAO ();
+		//dao = new UsuarioDAO ();
 		Usuario antigo = null;//dao.pesquisaPorLogin (usuario.getLogin());
 		
 		if (antigo != null){
@@ -24,7 +36,7 @@ public class UsuarioBSBean {
 		} else {
 			
 			try{
-				dao.cadastrarUsuario(usuario);
+				manager.persist(usuario);
 
 	        }catch (Exception e) {
 	        	e.printStackTrace();
@@ -38,7 +50,10 @@ public class UsuarioBSBean {
 
 	public Usuario logar(String login, String senha) {
 		
-		Usuario usuario = dao.pesquisaPorLogin(login);
+		Query query = manager.createQuery("select u from Usuario u where u.login = :login", Usuario.class);
+    	query.setParameter("login", login);
+    	Usuario usuario = (Usuario) query.getSingleResult();
+    	System.out.println(usuario);
 
 		if (usuario != null) {
 			if (usuario.getSenha().equals(senha)) {

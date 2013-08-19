@@ -6,18 +6,18 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import business.LoginBean;
 import dominio.Usuario;
-import sessionbeans.UsuarioBSBean;
 
 @SessionScoped
 @ManagedBean
 public class LoginMB {
 	@EJB
-	private UsuarioBSBean usuarioBSBean;
+	private LoginBean loginBean;
 	private String login, senha; 
 	
 	public String logar(){
-		Usuario usuarioLogado = usuarioBSBean.logar(login, senha);
+		Usuario usuarioLogado = loginBean.logar(login, senha);
 		System.out.println("Usuario logado: "+usuarioLogado);
 		if (usuarioLogado != null){
 			return "OK";
@@ -32,13 +32,6 @@ public class LoginMB {
 	}
 		
 
-	public UsuarioBSBean getUsuarioBSBean() {
-		return usuarioBSBean;
-	}
-
-	public void setUsuarioBSBean(UsuarioBSBean usuarioBSBean) {
-		this.usuarioBSBean = usuarioBSBean;
-	}
 
 	public String getLogin() {
 		return login;

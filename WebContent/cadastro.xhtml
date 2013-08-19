@@ -9,7 +9,7 @@
 	<title>Cadastro</title>
 </h:head>
 <h:body>
-	<h:form>
+	<h:form id="form">
 		<p:panel header="Faça seu Cadastro">
 			<h:panelGrid columns="2">
 
@@ -32,6 +32,8 @@
 					action="#{cadastroMB.voltar}" />
 			</h:panelGrid>
 		</p:panel>
+		
+		<h:message for="form"/>
 
 		<p:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1">
 			<h:outputText value="cadastro realizado com sucesso!" />

@@ -9,15 +9,18 @@
 <title>Página inicial</title>
 </h:head>
 <h:body>
-	<h:form>
+	<h:form id="form">
 	<h:outputText value = "Bem Vindo ao Pocket Planner faça seu login para acessar o sistema" />
-  	  <p:panel header="Faça seu Loguin">  
+  	  <p:panel header="Faça seu Login">  
         <h:panelGrid columns="2">  
             <h:outputText value="E-mail: " />  
             <p:inputText value="#{loginMB.login}" requerid = "true" /> 
   
             <h:outputText value="Senha: " />  
             <p:password id="senha" value="#{loginMB.senha}" requerid = "true"/>
+            
+            <h:message for="form"/>
+            <br />
             	            
 			<h:commandButton id="loginButton" value="Entrar" action = "#{loginMB.logar}"/>
 			<h:commandButton  value="Cadastrar" action = "#{loginMB.cadastrar}"/>

@@ -20,9 +20,12 @@ public class CadastroMB {
 		usuario.setNome(nome);
 		usuario.setLogin(login);
 		usuario.setSenha(senha);
-		this.usuarioBSBean.cadastrarUsuario(usuario);
-		return "CadastroOK";
-	}
+		try {
+			usuarioBSBean.cadastrarUsuario(usuario);
+		return "CadastroOK";} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		} }
 	
 	public String voltar (){
 		return "Voltar";

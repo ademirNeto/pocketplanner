@@ -1,7 +1,6 @@
 package dominio;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,7 +11,6 @@ import javax.persistence.Table;
 public class Transacao {
 	
 	@Id
-	@GeneratedValue
 	private Integer id;
 	private String nome;
 	private double valor;

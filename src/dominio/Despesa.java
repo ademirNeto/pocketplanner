@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="despesa")
 public class Despesa extends Transacao {
 
 	private String status;

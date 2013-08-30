@@ -33,6 +33,24 @@ public class Usuario {
 	
 	
 	/**
+	 * @return the data_criacao
+	 */
+	public Date getData_criacao() {
+		return data_criacao;
+	}
+
+
+
+	/**
+	 * @param data_criacao the data_criacao to set
+	 */
+	public void setData_criacao(Date data_criacao) {
+		this.data_criacao = data_criacao;
+	}
+
+
+
+	/**
 	 * @return the id
 	 */
 	public Integer getId() {

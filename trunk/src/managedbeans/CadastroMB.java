@@ -1,10 +1,8 @@
 package managedbeans;
 
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import business.CadastroBean;
 import dominio.Usuario;
@@ -14,12 +12,12 @@ import dominio.Usuario;
 public class CadastroMB {
 	@EJB
 	private CadastroBean cadastroBean;
-	private String nome, login, senha, confirmarSenha;
+	private String nome, email, senha, confirmarSenha;
 
 	public String salvarUsuario() throws Exception {
 		Usuario usuario = new Usuario();
 		usuario.setNome(nome);
-		usuario.setLogin(login);
+		usuario.setEmail(email);
 		usuario.setSenha(senha);
 
 		try {
@@ -35,36 +33,61 @@ public class CadastroMB {
 		return "Voltar";
 	}
 
+	/**
+	 * @return the nome
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * @param nome the nome to set
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getLogin() {
-		return login;
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
+	/**
+	 * @return the senha
+	 */
 	public String getSenha() {
 		return senha;
 	}
 
+	/**
+	 * @param senha the senha to set
+	 */
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
+	/**
+	 * @return the confirmarSenha
+	 */
 	public String getConfirmarSenha() {
 		return confirmarSenha;
 	}
 
+	/**
+	 * @param confirmarSenha the confirmarSenha to set
+	 */
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
 	}
 
+	
 }

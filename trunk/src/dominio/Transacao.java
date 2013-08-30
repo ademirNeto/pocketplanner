@@ -1,26 +1,39 @@
 package dominio;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
+/**
+ * Superclasse Transacao
+ * @author Mariana
+ *
+ */
 @Entity
-@Table(name="transacao")
-public class Transacao {
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) 
+public abstract class Transacao {
 	
 	@Id
 	private Integer id;
-	private String nome;
-	private double valor;
+	private String titulo;
+	private float valor;
+	private String descricao;
+	private int repeticao;
+	@Temporal(value=TemporalType.DATE)
+	private Date data_criacao;
 	@ManyToOne
 	private Usuario usuario;
 	
 	public Transacao () {
 		
 	}
-	
 
 	/**
 	 * @return the id
@@ -37,31 +50,73 @@ public class Transacao {
 	}
 
 	/**
-	 * @return the nome
+	 * @return the titulo
 	 */
-	public String getNome() {
-		return nome;
+	public String getTitulo() {
+		return titulo;
 	}
 
 	/**
-	 * @param nome the nome to set
+	 * @param titulo the titulo to set
 	 */
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	/**
 	 * @return the valor
 	 */
-	public double getValor() {
+	public float getValor() {
 		return valor;
 	}
 
 	/**
 	 * @param valor the valor to set
 	 */
-	public void setValor(double valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
+	}
+
+	/**
+	 * @return the descricao
+	 */
+	public String getDescricao() {
+		return descricao;
+	}
+
+	/**
+	 * @param descricao the descricao to set
+	 */
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	/**
+	 * @return the repeticao
+	 */
+	public int getRepeticao() {
+		return repeticao;
+	}
+
+	/**
+	 * @param repeticao the repeticao to set
+	 */
+	public void setRepeticao(int repeticao) {
+		this.repeticao = repeticao;
+	}
+
+	/**
+	 * @return the data_criacao
+	 */
+	public Date getData_criacao() {
+		return data_criacao;
+	}
+
+	/**
+	 * @param data_criacao the data_criacao to set
+	 */
+	public void setData_criacao(Date data_criacao) {
+		this.data_criacao = data_criacao;
 	}
 
 	/**
@@ -78,6 +133,7 @@ public class Transacao {
 		this.usuario = usuario;
 	}
 	
+
 	
 
 }

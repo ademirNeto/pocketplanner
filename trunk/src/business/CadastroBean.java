@@ -34,7 +34,7 @@ public class CadastroBean {
 		
 		//Query para o DAO
 		Query query = manager.createQuery("select u from Usuario u where u.login = :login", Usuario.class);
-    	query.setParameter("login", usuario.getLogin());
+    	query.setParameter("login", usuario.getEmail());
     	Usuario existe;
     	
     	

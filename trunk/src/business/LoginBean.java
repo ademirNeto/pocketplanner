@@ -33,7 +33,8 @@ public class LoginBean {
     	System.out.println(usuario);
 
 		if (usuario != null) {
-			if (usuario.getSenha().equals(senha)) {
+			if (usuario.getSenha().equals(EncriptaSenha.encripta(senha)))
+				{
 				
 				this.usuarioLogado = usuario;
 				} else {

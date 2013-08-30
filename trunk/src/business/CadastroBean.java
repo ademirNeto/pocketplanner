@@ -31,7 +31,7 @@ public class CadastroBean {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarUsuario(Usuario usuario)  throws Exception  {
-		
+		usuario.setSenha(EncriptaSenha.encripta(usuario.getSenha()));
 		//Query para o DAO
 		Query query = manager.createQuery("select u from Usuario u where u.email = :email", Usuario.class);
     	query.setParameter("email", usuario.getEmail());

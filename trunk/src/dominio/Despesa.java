@@ -9,6 +9,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Classe que representa as despesas
+ * @author Mariana
+ *
+ */
 @Entity
 public class Despesa extends Transacao {
 	

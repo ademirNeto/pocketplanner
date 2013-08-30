@@ -20,8 +20,8 @@ public class LoginBean {
 	
 	public Usuario logar(String login, String senha) {
 		
-		Query query = manager.createQuery("select u from Usuario u where u.login = :login", Usuario.class);
-    	query.setParameter("login", login);
+		Query query = manager.createQuery("select u from Usuario u where u.email = :email", Usuario.class);
+    	query.setParameter("email", login);
     	Usuario usuario;
     	try {
     		usuario = (Usuario) query.getSingleResult();

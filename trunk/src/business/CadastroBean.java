@@ -33,8 +33,8 @@ public class CadastroBean {
 	public void cadastrarUsuario(Usuario usuario)  throws Exception  {
 		
 		//Query para o DAO
-		Query query = manager.createQuery("select u from Usuario u where u.login = :login", Usuario.class);
-    	query.setParameter("login", usuario.getEmail());
+		Query query = manager.createQuery("select u from Usuario u where u.email = :email", Usuario.class);
+    	query.setParameter("email", usuario.getEmail());
     	Usuario existe;
     	
     	

@@ -53,6 +53,11 @@ public class Receita extends Transacao {
 		this.lembretes = lembretes;
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("Receita: titulo - %s; descrição - %s; valor - %s; data de Recebimento - %s", getTitulo(), getDescricao(), getValor(), getData_recebimento());
+	}
+	
 	
 	
 }

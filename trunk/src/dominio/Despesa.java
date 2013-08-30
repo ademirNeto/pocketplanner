@@ -86,6 +86,11 @@ public class Despesa extends Transacao {
 	public void setDespesa_pai(Despesa despesa_pai) {
 		this.despesa_pai = despesa_pai;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Despesa: titulo - %s; descrição - %s; valor - %s; data de vencimento - %s", getTitulo(), getDescricao(), getValor(), getData_vencimento());
+	}
 
 	
 }

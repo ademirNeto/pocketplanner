@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:panel header="Cadastro de Receita">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="Titulo: " />
+				<p:inputText id="nomeCadastro" value="#{cadastroReceitaMB.titulo}" requerid = "true" />
+
+				<h:outputText value="Valor: " />
+				<p:inputText requerid = "true" value="#{cadastroReceitaMB.valor}" />
+				
+				<h:outputText value="Descrição: " />
+				<p:inputText requerid = "true" value="#{cadastroReceitaMB.descricao}" />
+
+				
+				<h:outputText value="Data de Recebimento: " />
+				<p:inputText requerid = "true" value="#{cadastroReceitaMB.dataRecebimento}" />
+
+				
+				<h:commandButton id="loginButton" value="Salvar"
+					action="#{cadastroReceitaMB.salvarReceita}"/>
+				<h:commandButton id="CadastrarButton" value="Voltar"
+					action="#{cadastroReceitaMB.voltar}" />
+			</h:panelGrid>
+		</p:panel>
+		
+		<h:message for="form"/>
+
+		<p:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1">
+			<h:outputText value="cadastro realizado com sucesso!" />
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

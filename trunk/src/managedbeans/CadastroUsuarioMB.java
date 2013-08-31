@@ -4,14 +4,14 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import business.CadastroBean;
+import business.CadastroUsuarioBS;
 import dominio.Usuario;
 
 @ManagedBean
 @SessionScoped
-public class CadastroMB {
+public class CadastroUsuarioMB {
 	@EJB
-	private CadastroBean cadastroBean;
+	private CadastroUsuarioBS cadastroUsuarioBS;
 	private String nome, email, senha, confirmarSenha;
 
 	public String salvarUsuario() throws Exception {
@@ -21,7 +21,7 @@ public class CadastroMB {
 		usuario.setSenha(senha);
 
 		try {
-			cadastroBean.cadastrarUsuario(usuario);
+			cadastroUsuarioBS.cadastrarUsuario(usuario);
 			return "CadastroOK";
 		} catch (Exception e) {
 			e.printStackTrace();

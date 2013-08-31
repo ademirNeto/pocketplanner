@@ -3,6 +3,7 @@ package dominio;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -21,6 +22,7 @@ import javax.persistence.TemporalType;
 public abstract class Transacao {
 	
 	@Id
+	@GeneratedValue
 	private Integer id;
 	private String titulo;
 	private float valor;

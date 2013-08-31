@@ -17,7 +17,7 @@ import exception.PocketPlannerRuntimeException;
 
 
 @Stateless
-public class CadastroBean {
+public class CadastroUsuarioBS {
 
 	
 	//private UsuarioDAO dao;
@@ -25,7 +25,7 @@ public class CadastroBean {
 	@PersistenceContext(unitName = "pocketplanner")
 	private EntityManager manager;
 	
-	public CadastroBean () {}
+	public CadastroUsuarioBS () {}
 
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)

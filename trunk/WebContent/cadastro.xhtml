@@ -14,22 +14,22 @@
 			<h:panelGrid columns="2">
 
 				<h:outputText value="Nome: " />
-				<p:inputText id="nomeCadastro" value="#{cadastroMB.nome}" requerid = "true" />
+				<p:inputText id="nomeCadastro" value="#{cadastroUsuarioMB.nome}" requerid = "true" />
 
 				<h:outputText value="E-mail: " />
-				<p:inputText requerid = "true" value="#{cadastroMB.email}" />
+				<p:inputText requerid = "true" value="#{cadastroUsuarioMB.email}" />
 
 				<h:outputText value="Senha: " />
 				<p:password id = "feedback" 
-				value="#{cadastroMB.senha}" requerid="true" feedback="true" />
+				value="#{cadastroUsuarioMB.senha}" requerid="true" feedback="true" />
 				
 				<h:outputText value="Confirme Senha: " />
 				<p:password  requerid="true" />
 				
 				<h:commandButton id="loginButton" value="Salvar"
-					action="#{cadastroMB.salvarUsuario}"/>
+					action="#{cadastroUsuarioMB.salvarUsuario}"/>
 				<h:commandButton id="CadastrarButton" value="Voltar"
-					action="#{cadastroMB.voltar}" />
+					action="#{cadastroUsuarioMB.voltar}" />
 			</h:panelGrid>
 		</p:panel>
 		

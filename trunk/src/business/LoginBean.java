@@ -35,14 +35,13 @@ public class LoginBean {
 		if (usuario != null) {
 			if (usuario.getSenha().equals(EncriptaSenha.encripta(senha)))
 				{
-				
-				this.usuarioLogado = usuario;
+				usuarioLogado = usuario;
 				} else {
-					this.usuarioLogado = null;
+					usuarioLogado= usuario;
 					
 				}
 		} else {
-			this.usuarioLogado = null;
+			usuarioLogado = usuario;
 		}
 		
 		return usuarioLogado;

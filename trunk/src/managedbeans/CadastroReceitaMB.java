@@ -20,11 +20,6 @@ public class CadastroReceitaMB {
 	private String titulo, descricao, dataRecebimento;
 	private float valor; 
 	
-	public String pesquisarReceitasMes(){
-		receitaBS.pesquisarReceitasMes(new Date());
-		return "OK";
-	}
-	
 
 	public String salvarReceita() throws Exception {
 		Receita receita = new Receita();

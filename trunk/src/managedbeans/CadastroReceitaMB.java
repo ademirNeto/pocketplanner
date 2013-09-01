@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import business.LoginBean;
 import business.ReceitaBS;
 import dominio.Receita;
 
@@ -16,6 +17,8 @@ import dominio.Receita;
 public class CadastroReceitaMB {
 	@EJB
 	ReceitaBS receitaBS;
+	@EJB
+	private LoginBean loginBS;
 
 	private String titulo, descricao, dataRecebimento;
 	private float valor; 
@@ -40,6 +43,7 @@ public class CadastroReceitaMB {
 		receita.setValor(valor);
 		receita.setData_recebimento(converterData());
 		receita.setData_criacao(getDataReferencia());
+		receita.setUsuario(loginBS.getUsuarioLogado());
 
 		try {
 			receitaBS.salvarReceita(receita);

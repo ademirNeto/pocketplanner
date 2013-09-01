@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import business.DespesaBS;
+import business.LoginBean;
 import dominio.Despesa;
 
 @ManagedBean
@@ -16,9 +17,13 @@ import dominio.Despesa;
 public class CadastroDespesaMB {
 	@EJB
 	private DespesaBS despesaBS;
+	
+	@EJB
+	private LoginBean loginBS;
 
 	private String titulo, descricao, dataVencimento;
 	private float valor; 
+	private int repetir;
 	
 	private static SimpleDateFormat df = new SimpleDateFormat("MMM/yyyy");
 	static String mesReferencia = null;
@@ -44,7 +49,8 @@ public class CadastroDespesaMB {
 		despesa.setValor(valor);
 		despesa.setData_vencimento(converterData());
 		despesa.setData_criacao(getDataReferencia());
-		
+		despesa.setUsuario(loginBS.getUsuarioLogado());
+		despesa.setRepeticao(getRepetir());
 
 		try {
 			despesaBS.salvarDespesa(despesa);
@@ -127,6 +133,14 @@ public class CadastroDespesaMB {
 
 	public void setMesReferencia(String mesReferencia) {
 		this.mesReferencia = mesReferencia;
+	}
+
+	public int getRepetir() {
+		return repetir;
+	}
+
+	public void setRepetir(int repetir) {
+		this.repetir = repetir;
 	}
 	
 	

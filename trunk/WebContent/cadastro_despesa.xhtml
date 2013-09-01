@@ -25,7 +25,11 @@
 
 				
 				<h:outputText value="Data de Vencimento: " />
-				<p:inputText requerid = "true" value="#{cadastroDespesaMB.dataVencimento}" />
+				<p:inputMask requerid = "true" value="#{cadastroDespesaMB.dataVencimento}" mask="99/99/9999"/>
+				
+				<h:outputText value="Repetir por: " />
+				<p:inputText type="number" requerid = "true" value="#{cadastroDespesaMB.repetir}"/>
+				
 
 				
 				<h:commandButton id="loginButton" value="Salvar"

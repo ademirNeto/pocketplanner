@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,16 +19,11 @@ public class DespesaBS {
 	
 	private float totalMes = 0;
 	
-	@EJB
-	private LoginBean loginBean;
-	
 	public DespesaBS() {
 	}
 	
 	public void salvarDespesa(Despesa despesa){
-		despesa.setUsuario(loginBean.getUsuarioLogado());
-		
-		manager.persist(despesa);
+			manager.persist(despesa);
 	}
 	
 	public List<Despesa> pesquisarDespesasMes(Date mes){

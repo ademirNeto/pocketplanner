@@ -31,8 +31,7 @@ public class Despesa extends Transacao {
 	@ManyToMany
 	private List <Lembrete> lembretes;
 	
-	public Despesa () {
-		super ();
+	public Despesa() {
 	}
 
 	/**
@@ -95,6 +94,7 @@ public class Despesa extends Transacao {
 	public String toString() {
 		return String.format("Despesa: titulo - %s; descrição - %s; valor - %s; data de vencimento - %s", getTitulo(), getDescricao(), getValor(), getData_vencimento());
 	}
+	
 
 	
 }

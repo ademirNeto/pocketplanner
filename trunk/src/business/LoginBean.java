@@ -13,7 +13,7 @@ public class LoginBean {
 	
 	@PersistenceContext(unitName = "pocketplanner")
 	private EntityManager manager;
-	private Usuario usuarioLogado;
+	private static Usuario usuarioLogado;
 	
 	public LoginBean() {
 	}

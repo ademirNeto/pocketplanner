@@ -10,38 +10,44 @@
 </h:head>
 <h:body>
 	<h:form>
+				<h:commandButton id="verMesAnteriorButton"
+					value="Ant"
+					action="#{telaPrincipalMB.verMesAnterior}" />
+				<h:outputText value="#{telaPrincipalMB.mesReferencia} " />
+				<h:commandButton id="verMesPosteriorButton"
+					value="Pos"
+					action="#{telaPrincipalMB.verMesPosterior}" />
+	
+	
 		<p:panel header="Cadastre seus adendos">
 			<h:panelGrid columns="2">
-				<h:outputText value="Tipo da Adendo: " />
-				<p:selectOneRadio id="options" value="null">
-					<f:selectItem itemLabel="Crédito" itemValue="1" />
-					<f:selectItem itemLabel="Débito" itemValue="2" />
-				</p:selectOneRadio>
-				<p:inputText id="adendo" value="{#}" requerid="true" />
 
-				<p:commandButton id="CadastrarButton" value="Cadastrar" />
+				<h:commandButton id="cadastrarReceitaButton"
+					value="Cadastrar Receita"
+					action="#{telaPrincipalMB.cadastrarReceita}" />
+
+				<h:commandButton id="cadastrarDespesaButton"
+					value="Cadastrar Despesa"
+					action="#{telaPrincipalMB.cadastrarDespesa}" />
+				
 			</h:panelGrid>
 		</p:panel>
 	</h:form>
 	<h:form>
 		<p:panel header="Informações financeiras">
 			<h:panelGrid columns="2">
-				<h:outputText value="O total de suas despesas esse mês é:  " />
-				<h:outputText value="#{login.usuario}" style="font-weight:bold" />
-
 				<h:outputText value="O total de creditos esse mês é:  " />
-				<h:outputText value="#{login.usuario}" style="font-weight:bold" />
+				<h:outputText value="#{telaPrincipalMB.totalReceitasMes}" style="font-weight:bold" />
+
+				<h:outputText value="O total de suas despesas esse mês é:  " />
+				<h:outputText value="#{telaPrincipalMB.totalDespesasMes}" style="font-weight:bold" />
 
 				<h:outputText value="Você nesse mês tem um saldo de: " />
-				<h:outputText value="#{login.usuario}" style="font-weight:bold" />
+				<h:outputText value="#{telaPrincipalMB.saldo}" style="font-weight:bold" />
 
 				<h:commandButton id="PesquisarDespesaButton"
-					value="Pesquisar Despesas"
-					action="#{telaPrincipalMB.pesquisarDespesasMes}" />
-
-				<h:commandButton id="PesquisarReceitaButton"
-					value="Pesquisar Receitas"
-					action="#{telaPrincipalMB.pesquisarReceitasMes}" />
+					value="Pesquisar "
+					actionListener="#{telaPrincipalMB.pesquisarReceitasEDespesasMes}" />
 
 			</h:panelGrid>
 		</p:panel>

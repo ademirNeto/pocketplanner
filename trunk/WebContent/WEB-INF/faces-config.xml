@@ -40,5 +40,42 @@
         <to-view-id>/login.xhtml</to-view-id>
     </navigation-case>
  </navigation-rule>
+    
+    
+    <navigation-rule>
+    <from-view-id>/index.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>cadastrarDespesa</from-outcome>
+        <to-view-id>/cadastro_despesa.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>cadastrarReceita</from-outcome>
+        <to-view-id>/cadastro_receita.xhtml</to-view-id>
+    </navigation-case>
+ </navigation-rule>
+    
+    <navigation-rule>
+    <from-view-id>/cadastro_despesa.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>Voltar</from-outcome>
+        <to-view-id>/index.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>CadastroOK</from-outcome>
+        <to-view-id>/index.xhtml</to-view-id>
+    </navigation-case>
+ </navigation-rule>
+    
+    <navigation-rule>
+    <from-view-id>/cadastro_receita.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>Voltar</from-outcome>
+        <to-view-id>/index.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>CadastroOK</from-outcome>
+        <to-view-id>/index.xhtml</to-view-id>
+    </navigation-case>
+ </navigation-rule>
 
 </faces-config>

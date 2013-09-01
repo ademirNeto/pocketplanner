@@ -11,13 +11,14 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import dominio.Despesa;
-import dominio.Usuario;
 
 @Stateless
 public class DespesaBS {
 
 	@PersistenceContext(unitName = "pocketplanner")
 	private EntityManager manager;
+	
+	private float totalMes = 0;
 	
 	@EJB
 	private LoginBean loginBean;
@@ -26,21 +27,35 @@ public class DespesaBS {
 	}
 	
 	public void salvarDespesa(Despesa despesa){
-		despesa.setData_criacao(new Date());
 		despesa.setUsuario(loginBean.getUsuarioLogado());
 		
 		manager.persist(despesa);
 	}
 	
 	public List<Despesa> pesquisarDespesasMes(Date mes){
+		setTotalMes(0);
 		ArrayList<Despesa> despesasMes = new ArrayList<Despesa> ();
 		
-		Query query = manager.createQuery("select d from Despesa d", Despesa.class);
+		Query query = manager.createQuery("select d from Despesa d where d.data_criacao >=:comecoMes and d.data_criacao <= :finalMes", Despesa.class);
+		
+		query.setParameter("comecoMes", Utils.getPrimeiroDiaMes(mes));
+		query.setParameter("finalMes", Utils.getUltimoDiaMes(mes));
+		
 		despesasMes = (ArrayList<Despesa>) query.getResultList();
 		for (Despesa despesa : despesasMes) {
-			System.out.println(despesa);
+			setTotalMes(getTotalMes() + despesa.getValor());
 		}
 		
 		return despesasMes;
 	}
+
+	public float getTotalMes() {
+		return totalMes;
+	}
+
+	public void setTotalMes(float totalMes) {
+		this.totalMes = totalMes;
+	}
+
+	
 }

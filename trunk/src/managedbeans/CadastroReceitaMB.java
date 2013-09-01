@@ -6,13 +6,13 @@ import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import business.ReceitaBS;
 import dominio.Receita;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class CadastroReceitaMB {
 	@EJB
 	ReceitaBS receitaBS;
@@ -20,6 +20,18 @@ public class CadastroReceitaMB {
 	private String titulo, descricao, dataRecebimento;
 	private float valor; 
 	
+	private static SimpleDateFormat df = new SimpleDateFormat("MMM/yyyy");
+	static String mesReferencia = null;
+	
+	public Date getDataReferencia(){
+		Date data = null;
+		try {
+			data = df.parse(getMesReferencia());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
 
 	public String salvarReceita() throws Exception {
 		Receita receita = new Receita();
@@ -27,6 +39,7 @@ public class CadastroReceitaMB {
 		receita.setDescricao(descricao);
 		receita.setValor(valor);
 		receita.setData_recebimento(converterData());
+		receita.setData_criacao(getDataReferencia());
 
 		try {
 			receitaBS.salvarReceita(receita);
@@ -90,6 +103,31 @@ public class CadastroReceitaMB {
 	public void setDataRecebimento(String dataRecebimento) {
 		this.dataRecebimento = dataRecebimento;
 	}
+
+	public ReceitaBS getReceitaBS() {
+		return receitaBS;
+	}
+
+	public void setReceitaBS(ReceitaBS receitaBS) {
+		this.receitaBS = receitaBS;
+	}
+
+	public static SimpleDateFormat getDf() {
+		return df;
+	}
+
+	public static void setDf(SimpleDateFormat df) {
+		CadastroReceitaMB.df = df;
+	}
+
+	public String getMesReferencia() {
+		return mesReferencia;
+	}
+
+	public void setMesReferencia(String mesReferencia) {
+		CadastroReceitaMB.mesReferencia = mesReferencia;
+	}
+
 	
 	
 

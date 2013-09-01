@@ -20,11 +20,6 @@ public class CadastroDespesaMB {
 	private String titulo, descricao, dataVencimento;
 	private float valor; 
 	
-	public String pesquisarDespesasMes(){
-		despesaBS.pesquisarDespesasMes(new Date());
-		return "OK";
-	}
-	
 
 	public String salvarDespesa() throws Exception {
 		Despesa despesa = new Despesa();

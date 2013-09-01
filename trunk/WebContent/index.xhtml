@@ -17,8 +17,8 @@
 					<f:selectItem itemLabel="Crédito" itemValue="1" />
 					<f:selectItem itemLabel="Débito" itemValue="2" />
 				</p:selectOneRadio>
-				<p:inputText id="adendo" value = "{#}" requerid = "true"/>
-					
+				<p:inputText id="adendo" value="{#}" requerid="true" />
+
 				<p:commandButton id="CadastrarButton" value="Cadastrar" />
 			</h:panelGrid>
 		</p:panel>
@@ -32,18 +32,74 @@
 				<h:outputText value="O total de creditos esse mês é:  " />
 				<h:outputText value="#{login.usuario}" style="font-weight:bold" />
 
-				<h:outputText
-					value="Você nesse mês tem um saldo de: " />
+				<h:outputText value="Você nesse mês tem um saldo de: " />
 				<h:outputText value="#{login.usuario}" style="font-weight:bold" />
-				
-				<h:commandButton id="PesquisarDespesaButton" value="Pesquisar Despesas"
-					action="#{cadastroDespesaMB.pesquisarDespesasMes}" />
-					
-				<h:commandButton id="PesquisarReceitaButton" value="Pesquisar Receitas"
-					action="#{cadastroReceitaMB.pesquisarReceitasMes}" />
+
+				<h:commandButton id="PesquisarDespesaButton"
+					value="Pesquisar Despesas"
+					action="#{telaPrincipalMB.pesquisarDespesasMes}" />
+
+				<h:commandButton id="PesquisarReceitaButton"
+					value="Pesquisar Receitas"
+					action="#{telaPrincipalMB.pesquisarReceitasMes}" />
 
 			</h:panelGrid>
 		</p:panel>
 	</h:form>
+
+	<h1>Receitas do Mês</h1>
+
+	<h:dataTable value="#{telaPrincipalMB.receitaMes}" var="receitas">
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">Titulo </f:facet>
+			<!-- row record -->
+    				#{receitas.titulo}
+    			</h:column>
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">Valor </f:facet>
+			<!-- row record -->
+    				R$ #{receitas.valor}
+    			</h:column>
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">Data de Recebimento </f:facet>
+			<!-- row record -->
+    				#{receitas.data_recebimento}
+    			</h:column>
+	</h:dataTable>
+
+
+	<h1>Despesas do Mês</h1>
+
+	<h:dataTable value="#{telaPrincipalMB.despesasMes}" var="despesas">
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">Titulo </f:facet>
+			<!-- row record -->
+    				#{despesas.titulo}
+    			</h:column>
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">Valor </f:facet>
+			<!-- row record -->
+    				R$ #{despesas.valor}
+    			</h:column>
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">Data de Vencimento </f:facet>
+			<!-- row record -->
+    				#{despesas.data_vencimento}
+    			</h:column>
+	</h:dataTable>
+
+
 </h:body>
 </html>

@@ -35,6 +35,12 @@
 				<h:outputText
 					value="Você nesse mês tem um saldo de: " />
 				<h:outputText value="#{login.usuario}" style="font-weight:bold" />
+				
+				<h:commandButton id="PesquisarDespesaButton" value="Pesquisar Despesas"
+					action="#{cadastroDespesaMB.pesquisarDespesasMes}" />
+					
+				<h:commandButton id="PesquisarReceitaButton" value="Pesquisar Receitas"
+					action="#{cadastroReceitaMB.pesquisarReceitasMes}" />
 
 			</h:panelGrid>
 		</p:panel>

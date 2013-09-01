@@ -1,44 +1,32 @@
 package dominio;
 
-import javax.persistence.Id;
-import javax.persistence.Entity;
 
 /**
  * Classe de status das despesas
  * @author Mariana
  *
  */
-@Entity
-public class StatusDespesa {
+
+public enum StatusDespesa {
 	
-	@Id
-	private Integer id;
-	private String status;
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
-	/**
-	 * @param status the status to set
-	 */
-	public void setStatus(String status) {
+	PAGO (1),
+	PENDENTE (0);
+	
+	private int status;
+	
+	private StatusDespesa (int status) {
 		this.status = status;
 	}
 	
+	public int toInt () {
+		return status;
+	}
 	
-
+	public static StatusDespesa valueOf (int status) {
+		switch (status) {
+			case 1: return PAGO;
+			case 0: return PENDENTE;
+			default: return null;
+		}
+	}
 }

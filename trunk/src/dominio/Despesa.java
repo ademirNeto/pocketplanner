@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -19,8 +21,10 @@ public class Despesa extends Transacao {
 	
 	@Temporal(value=TemporalType.DATE)
 	private Date data_vencimento;
-	@ManyToOne
+
+	@Enumerated(EnumType.STRING)
 	private StatusDespesa status;
+	
 	private boolean composta;
 	@ManyToOne
 	private Despesa despesa_pai;

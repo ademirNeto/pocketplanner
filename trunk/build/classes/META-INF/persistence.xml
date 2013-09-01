@@ -10,7 +10,6 @@
 	    <class>dominio.Transacao</class>
 	    <class>dominio.Despesa</class>
 	    <class>dominio.Receita</class>
-	    <class>dominio.StatusDespesa</class>
 	    <class>dominio.Lembrete</class>
 	    <class>dominio.TipoLembrete</class>
 	    

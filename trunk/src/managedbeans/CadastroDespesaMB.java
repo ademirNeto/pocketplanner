@@ -197,28 +197,28 @@ public class CadastroDespesaMB {
 	/**
 	 * @return the df
 	 */
-	public static SimpleDateFormat getDf() {
+	public SimpleDateFormat getDf() {
 		return df;
 	}
 
 	/**
 	 * @param df the df to set
 	 */
-	public static void setDf(SimpleDateFormat df) {
+	public void setDf(SimpleDateFormat df) {
 		CadastroDespesaMB.df = df;
 	}
 
 	/**
 	 * @return the mesReferencia
 	 */
-	public static String getMesReferencia() {
+	public String getMesReferencia() {
 		return mesReferencia;
 	}
 
 	/**
 	 * @param mesReferencia the mesReferencia to set
 	 */
-	public static void setMesReferencia(String mesReferencia) {
+	public void setMesReferencia(String mesReferencia) {
 		CadastroDespesaMB.mesReferencia = mesReferencia;
 	}
 

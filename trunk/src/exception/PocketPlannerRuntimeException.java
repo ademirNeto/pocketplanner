@@ -1,5 +1,9 @@
 package exception;
 
+/**
+ * Class Runtime Exception
+ */
+
 public class PocketPlannerRuntimeException extends RuntimeException {
 
 	public class PockerPlannerRuntimeException extends Exception {  

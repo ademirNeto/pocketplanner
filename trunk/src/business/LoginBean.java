@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import dominio.Usuario;
 
 /**
- * Classe que gerencia o login do usuário
+ * Classe que gerencia o login do usuï¿½rio
  *
  */
 @Stateful
@@ -24,7 +24,7 @@ public class LoginBean {
 	
 	
 	/**
-	 * Função de logar
+	 * Funï¿½ï¿½o de logar
 	 * @param login
 	 * @param senha
 	 * @return usuario logado
@@ -41,7 +41,6 @@ public class LoginBean {
 		}
     	
     	
-    	System.out.println(usuario);
 
 		if (usuario != null) {
 			if (usuario.getSenha().equals(EncriptaSenha.encripta(senha)))

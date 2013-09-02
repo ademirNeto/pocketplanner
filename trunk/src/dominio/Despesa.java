@@ -20,16 +20,16 @@ import javax.persistence.TemporalType;
 public class Despesa extends Transacao {
 	
 	@Temporal(value=TemporalType.DATE)
-	private Date data_vencimento;
+	private Date dataVencimento;
 
 	@Enumerated(EnumType.STRING)
 	private StatusDespesa status;
 	
 	private boolean composta;
 	@ManyToOne
-	private Despesa despesa_pai;
+	private Despesa despesaPai;
 	@ManyToMany
-	private List <Lembrete> lembretes;
+	public List <Lembrete> lembretes;
 	
 	public Despesa() {
 	}
@@ -37,15 +37,15 @@ public class Despesa extends Transacao {
 	/**
 	 * @return the data_vencimento
 	 */
-	public Date getData_vencimento() {
-		return data_vencimento;
+	public Date getDataVencimento() {
+		return dataVencimento;
 	}
 
 	/**
-	 * @param data_vencimento the data_vencimento to set
+	 * @param dataVencimento the dataVencimento to set
 	 */
-	public void setData_vencimento(Date data_vencimento) {
-		this.data_vencimento = data_vencimento;
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
 	}
 
 	/**
@@ -79,20 +79,23 @@ public class Despesa extends Transacao {
 	/**
 	 * @return the despesa_pai
 	 */
-	public Despesa getDespesa_pai() {
-		return despesa_pai;
+	public Despesa getDespesaPai() {
+		return despesaPai;
 	}
 
 	/**
-	 * @param despesa_pai the despesa_pai to set
+	 * @param despesaPai the despesaPai to set
 	 */
-	public void setDespesa_pai(Despesa despesa_pai) {
-		this.despesa_pai = despesa_pai;
+	public void setDespesaPai(Despesa despesaPai) {
+		this.despesaPai = despesaPai;
 	}
 	
+	/**
+	 * @return the String
+	 */
 	@Override
 	public String toString() {
-		return String.format("Despesa: titulo - %s; descrição - %s; valor - %s; data de vencimento - %s", getTitulo(), getDescricao(), getValor(), getData_vencimento());
+		return String.format("Despesa: titulo - %s; descriï¿½ï¿½o - %s; valor - %s; data de vencimento - %s", getTitulo(), getDescricao(), getValor(), getDataVencimento());
 	}
 	
 

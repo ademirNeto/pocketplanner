@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 public class Receita extends Transacao {
 	
 	@Temporal(value=TemporalType.DATE)
-	private Date data_recebimento;
+	private Date dataRecebimento;
 	@ManyToMany
 	private List <Lembrete> lembretes;
 	
@@ -28,15 +28,15 @@ public class Receita extends Transacao {
 	/**
 	 * @return the data_recebimento
 	 */
-	public Date getData_recebimento() {
-		return data_recebimento;
+	public Date getDataRecebimento() {
+		return dataRecebimento;
 	}
 
 	/**
-	 * @param data_recebimento the data_recebimento to set
+	 * @param dataRecebimento the dataRecebimento to set
 	 */
-	public void setData_recebimento(Date data_recebimento) {
-		this.data_recebimento = data_recebimento;
+	public void setDataRecebimento(Date dataRecebimento) {
+		this.dataRecebimento = dataRecebimento;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class Receita extends Transacao {
 	
 	@Override
 	public String toString() {
-		return String.format("Receita: titulo - %s; descrição - %s; valor - %s; data de Recebimento - %s", getTitulo(), getDescricao(), getValor(), getData_recebimento());
+		return String.format("Receita: titulo - %s; descriï¿½ï¿½o - %s; valor - %s; data de Recebimento - %s", getTitulo(), getDescricao(), getValor(), getDataRecebimento());
 	}
 	
 	

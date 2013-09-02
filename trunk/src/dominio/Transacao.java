@@ -29,7 +29,7 @@ public abstract class Transacao {
 	private String descricao;
 	private int repeticao;
 	@Temporal(value=TemporalType.DATE)
-	private Date data_criacao;
+	private Date dataCriacao;
 	@ManyToOne
 	private Usuario usuario;
 	
@@ -110,15 +110,15 @@ public abstract class Transacao {
 	/**
 	 * @return the data_criacao
 	 */
-	public Date getData_criacao() {
-		return data_criacao;
+	public Date getDataCriacao() {
+		return dataCriacao;
 	}
 
 	/**
-	 * @param data_criacao the data_criacao to set
+	 * @param dataCriacao the dataCriacao to set
 	 */
-	public void setData_criacao(Date data_criacao) {
-		this.data_criacao = data_criacao;
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
 	/**

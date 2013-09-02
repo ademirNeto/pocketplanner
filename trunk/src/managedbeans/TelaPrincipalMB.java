@@ -16,7 +16,7 @@ import dominio.Despesa;
 import dominio.Receita;
 
 /**
- * Classe que se comunica com a tela principal da aplicação e com as classes de negócio
+ * Classe que se comunica com a tela principal da aplicaï¿½ï¿½o e com as classes de negï¿½cio
  *
  */
 @SessionScoped
@@ -37,7 +37,7 @@ public class TelaPrincipalMB {
 	private String mesReferencia = df.format(new Date());
 	
 	/**
-	 * Pesquisar receitas e despesas por mês
+	 * Pesquisar receitas e despesas por mï¿½s
 	 */
 	public void pesquisarReceitasEDespesasMes(){
 		
@@ -50,7 +50,7 @@ public class TelaPrincipalMB {
 	}
 	
 	/**
-	 * Recupera a data de referência
+	 * Recupera a data de referï¿½ncia
 	 * @return data
 	 */
 	public Date getDataReferencia(){
@@ -58,7 +58,7 @@ public class TelaPrincipalMB {
 		try {
 			data = df.parse(getMesReferencia());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		return data;
 	}
@@ -91,7 +91,7 @@ public class TelaPrincipalMB {
 			
 			pesquisarReceitasEDespesasMes();
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		return "OK";
 	}
@@ -107,7 +107,7 @@ public class TelaPrincipalMB {
 			setMesReferencia(df.format(c.getTime()));
 			pesquisarReceitasEDespesasMes();
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		return "OK";
 	}

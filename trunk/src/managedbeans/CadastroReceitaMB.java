@@ -31,14 +31,14 @@ public class CadastroReceitaMB {
 	static String mesReferencia = null;
 	
 	/**
-	 * recupea data de referência
+	 * recupea data de referï¿½ncia
 	 */
 	public Date getDataReferencia(){
 		Date data = null;
 		try {
 			data = df.parse(getMesReferencia());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		return data;
 	}
@@ -52,15 +52,15 @@ public class CadastroReceitaMB {
 		receita.setTitulo(titulo);
 		receita.setDescricao(descricao);
 		receita.setValor(valor);
-		receita.setData_recebimento(converterData());
-		receita.setData_criacao(getDataReferencia());
+		receita.setDataRecebimento(converterData());
+		receita.setDataCriacao(getDataReferencia());
 		receita.setUsuario(loginBS.getUsuarioLogado());
 
 		try {
 			receitaBS.salvarReceita(receita);
 			return "CadastroOK";
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 			return "";
 		}
 	}
@@ -80,7 +80,7 @@ public class CadastroReceitaMB {
 		try {
 			data =  dateFormat.parse(getDataRecebimento());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		
 		return data;

@@ -21,15 +21,14 @@ public class LoginMB {
 	private String login, senha; 
 	
 	/**
-	 * Função logar
+	 * Funï¿½ï¿½o logar
 	 */
 	public String logar(){
 		Usuario usuarioLogado = loginBean.logar(login, senha);
-		System.out.println("Usuario logado: "+usuarioLogado);
 		if (usuarioLogado != null){
 			return "OK";
 		}
-		FacesMessage msg = new FacesMessage("Usuário ou senha incorretos");
+		FacesMessage msg = new FacesMessage("Usuï¿½rio ou senha incorretos");
 	    FacesContext.getCurrentInstance().addMessage("form", msg);
 	    return "";
 	}

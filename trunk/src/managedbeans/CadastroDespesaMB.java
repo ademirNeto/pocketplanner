@@ -13,7 +13,7 @@ import business.LoginBean;
 import dominio.Despesa;
 
 /**
- * Classe que interage com a tela de cadastro de despesas e com o genenciamento de despesas na camada de negócios
+ * Classe que interage com a tela de cadastro de despesas e com o genenciamento de despesas na camada de negï¿½cios
  *
  */
 @ManagedBean
@@ -33,14 +33,14 @@ public class CadastroDespesaMB {
 	static String mesReferencia = null;
 	
 	/**
-	 * Recuperar data de referência
+	 * Recuperar data de referï¿½ncia
 	 */
 	public Date getDataReferencia(){
 		Date data = null;
 		try {
 			data = df.parse(getMesReferencia());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		return data;
 	}
@@ -61,8 +61,8 @@ public class CadastroDespesaMB {
 		despesa.setTitulo(titulo);
 		despesa.setDescricao(descricao);
 		despesa.setValor(valor);
-		despesa.setData_vencimento(converterData());
-		despesa.setData_criacao(getDataReferencia());
+		despesa.setDataVencimento(converterData());
+		despesa.setDataCriacao(getDataReferencia());
 		despesa.setUsuario(loginBS.getUsuarioLogado());
 		despesa.setRepeticao(getRepetir());
 
@@ -70,7 +70,7 @@ public class CadastroDespesaMB {
 			despesaBS.salvarDespesa(despesa);
 			return "CadastroOK";
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 			return "";
 		}
 	}
@@ -90,7 +90,7 @@ public class CadastroDespesaMB {
 		try {
 			data =  dateFormat.parse(getDataVencimento());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 		}
 		
 		return data;

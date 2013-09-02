@@ -19,7 +19,7 @@ public class Lembrete {
 	@Id
 	private Integer id;
 	@Temporal(value=TemporalType.TIMESTAMP)
-	private Date data_hora;
+	private Date dataHora;
 	@ManyToOne
 	private TipoLembrete tipo;
 	/**
@@ -37,14 +37,14 @@ public class Lembrete {
 	/**
 	 * @return the data_hora
 	 */
-	public Date getData_hora() {
-		return data_hora;
+	public Date getDataHora() {
+		return dataHora;
 	}
 	/**
-	 * @param data_hora the data_hora to set
+	 * @param dataHora the dataHora to set
 	 */
-	public void setData_hora(Date data_hora) {
-		this.data_hora = data_hora;
+	public void setDataHora(Date dataHora) {
+		this.dataHora = dataHora;
 	}
 	/**
 	 * @return the tipo

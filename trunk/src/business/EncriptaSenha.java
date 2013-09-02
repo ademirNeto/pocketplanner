@@ -9,10 +9,13 @@ import sun.misc.BASE64Encoder;
  * Classe que criptografa as senhas
  *
  */
-public class EncriptaSenha {     
+public final class EncriptaSenha {     
 	  
+	
+	private EncriptaSenha(){}
+	
     /**
-     * Função de criptografas senha
+     * Funï¿½ï¿½o de criptografas senha
      * @param senha
      * @return senha encriptada
      */
@@ -23,7 +26,7 @@ public class EncriptaSenha {
               BASE64Encoder encoder = new BASE64Encoder ();      
               return encoder.encode (digest.digest ());      
          } catch (NoSuchAlgorithmException ns) {     
-              ns.printStackTrace ();      
+        	 log.error("Ops!", ns);      
               return senha;      
          }  
          

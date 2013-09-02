@@ -4,13 +4,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Classe de funções auxiliares
+ * Classe de funï¿½ï¿½es auxiliares
  *
  */
-public class Utils {
+public final class Utils {
 	
+	private Utils(){}
 	/**
-	 * Função de resgatar o primeiro dia do mês
+	 * Funï¿½ï¿½o de resgatar o primeiro dia do mï¿½s
 	 */
 	public static Date getPrimeiroDiaMes(Date mes){
 		Calendar comecoMes = Calendar.getInstance();
@@ -20,7 +21,7 @@ public class Utils {
 	}
 	
 	/**
-	 * Função de resgatar o último dia do mês
+	 * Funï¿½ï¿½o de resgatar o ï¿½ltimo dia do mï¿½s
 	 */
 	public static Date getUltimoDiaMes(Date mes){
 		Calendar finalMes = Calendar.getInstance();

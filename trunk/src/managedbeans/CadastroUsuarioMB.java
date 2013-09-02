@@ -8,7 +8,7 @@ import business.CadastroUsuarioBS;
 import dominio.Usuario;
 
 /**
- * Classe que interage com a tela de cadastro de usuário e com a classe de negócio de gerenciamento de usuário
+ * Classe que interage com a tela de cadastro de usuï¿½rio e com a classe de negï¿½cio de gerenciamento de usuï¿½rio
  *
  */
 @ManagedBean
@@ -19,7 +19,7 @@ public class CadastroUsuarioMB {
 	private String nome, email, senha, confirmarSenha;
 
 	/**
-	 * Salva usuário
+	 * Salva usuï¿½rio
 	 * @throws Exception
 	 */
 	public String salvarUsuario() throws Exception {
@@ -32,7 +32,7 @@ public class CadastroUsuarioMB {
 			cadastroUsuarioBS.cadastrarUsuario(usuario);
 			return "CadastroOK";
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Ops!", e);
 			return "";
 		}
 	}

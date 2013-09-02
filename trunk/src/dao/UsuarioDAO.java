@@ -17,11 +17,16 @@ public class UsuarioDAO  {
 		
 	}
 	
+	/**
+	 * @param Usuario usuario
+	 */
 	public void cadastrarUsuario (Usuario usuario) {
-		System.out.println(manager);
 		manager.persist(usuario);
 	}
 	
+	/**
+	 * @param String login
+	 */
 	public Usuario pesquisaPorLogin(String login) {
 		Query query = manager.createQuery("select u from Usuario u where u.login = :login", Usuario.class);
     	query.setParameter("login", login);

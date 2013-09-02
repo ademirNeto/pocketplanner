@@ -25,9 +25,10 @@ public class CadastroDespesaMB {
 	@EJB
 	private LoginBean loginBS;
 
-	private String titulo, descricao, dataVencimento;
+	private String titulo, descricao;
 	private float valor; 
 	private int repetir;
+	private Date dataVencimento;
 	
 	private static SimpleDateFormat df = new SimpleDateFormat("MMM/yyyy");
 	static String mesReferencia = null;
@@ -61,7 +62,7 @@ public class CadastroDespesaMB {
 		despesa.setTitulo(titulo);
 		despesa.setDescricao(descricao);
 		despesa.setValor(valor);
-		despesa.setData_vencimento(converterData());
+		despesa.setData_vencimento(dataVencimento);
 		despesa.setData_criacao(getDataReferencia());
 		despesa.setUsuario(loginBS.getUsuarioLogado());
 		despesa.setRepeticao(getRepetir());
@@ -73,27 +74,6 @@ public class CadastroDespesaMB {
 			e.printStackTrace();
 			return "";
 		}
-	}
-
-	/**
-	 * Converter data
-	 */
-	private Date converterData() {
-		SimpleDateFormat dateFormat = null;
-		Date data = null;
-		if (dataVencimento.length() > 8){ 
-			dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		}
-		else{
-			dateFormat = new SimpleDateFormat("dd/MM/yy");
-		}
-		try {
-			data =  dateFormat.parse(getDataVencimento());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		return data;
 	}
 
 	/**
@@ -153,20 +133,6 @@ public class CadastroDespesaMB {
 	}
 
 	/**
-	 * @return the dataVencimento
-	 */
-	public String getDataVencimento() {
-		return dataVencimento;
-	}
-
-	/**
-	 * @param dataVencimento the dataVencimento to set
-	 */
-	public void setDataVencimento(String dataVencimento) {
-		this.dataVencimento = dataVencimento;
-	}
-
-	/**
 	 * @return the valor
 	 */
 	public float getValor() {
@@ -211,15 +177,29 @@ public class CadastroDespesaMB {
 	/**
 	 * @return the mesReferencia
 	 */
-	public static String getMesReferencia() {
+	public String getMesReferencia() {
 		return mesReferencia;
 	}
 
 	/**
 	 * @param mesReferencia the mesReferencia to set
 	 */
-	public static void setMesReferencia(String mesReferencia) {
+	public void setMesReferencia(String mesReferencia) {
 		CadastroDespesaMB.mesReferencia = mesReferencia;
+	}
+
+	/**
+	 * @param dataVencimento the dataVencimento to set
+	 */
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
+	
+	/**
+	 * @return the dataVencimento
+	 */
+	public Date getDataVencimento() {
+		return dataVencimento;
 	}
 
 

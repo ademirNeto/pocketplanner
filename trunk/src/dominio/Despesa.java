@@ -95,6 +95,21 @@ public class Despesa extends Transacao {
 		return String.format("Despesa: titulo - %s; descrição - %s; valor - %s; data de vencimento - %s", getTitulo(), getDescricao(), getValor(), getData_vencimento());
 	}
 	
+	public Despesa clone(Despesa despesaPai){
+		Despesa clone = new Despesa();
+		clone.setValor(despesaPai.getValor());
+		clone.setUsuario(despesaPai.getUsuario());
+		clone.setTitulo(despesaPai.getTitulo());
+		clone.setStatus(despesaPai.getStatus());
+		clone.setRepeticao(despesaPai.getRepeticao());
+		clone.setDespesa_pai(despesaPai.getDespesa_pai());
+		clone.setDescricao(despesaPai.getDescricao());
+		clone.setData_vencimento(despesaPai.getData_vencimento());
+		clone.setData_criacao(despesaPai.getData_criacao());
+		clone.setComposta(despesaPai.isComposta());
+		return clone;
+	}
+	
 
 	
 }

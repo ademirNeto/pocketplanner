@@ -24,8 +24,9 @@ public class CadastroReceitaMB {
 	@EJB
 	private LoginBean loginBS;
 
-	private String titulo, descricao, dataRecebimento;
+	private String titulo, descricao; 
 	private float valor; 
+	private Date dataRecebimento;
 	
 	private static SimpleDateFormat df = new SimpleDateFormat("MMM/yyyy");
 	static String mesReferencia = null;
@@ -52,7 +53,7 @@ public class CadastroReceitaMB {
 		receita.setTitulo(titulo);
 		receita.setDescricao(descricao);
 		receita.setValor(valor);
-		receita.setData_recebimento(converterData());
+		receita.setData_recebimento(dataRecebimento);
 		receita.setData_criacao(getDataReferencia());
 		receita.setUsuario(loginBS.getUsuarioLogado());
 
@@ -64,30 +65,6 @@ public class CadastroReceitaMB {
 			return "";
 		}
 	}
-	
-	/**
-	 * Converter data
-	 */
-	private Date converterData() {
-		SimpleDateFormat dateFormat = null;
-		Date data = null;
-		if (dataRecebimento.length() > 8){ 
-			dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		}
-		else{
-			dateFormat = new SimpleDateFormat("dd/MM/yy");
-		}
-		try {
-			data =  dateFormat.parse(getDataRecebimento());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		return data;
-	}
-	
-	
-
 	
 	/**
 	 * @return the receitaBS
@@ -148,14 +125,14 @@ public class CadastroReceitaMB {
 	/**
 	 * @return the dataRecebimento
 	 */
-	public String getDataRecebimento() {
+	public Date getDataRecebimento() {
 		return dataRecebimento;
 	}
 
 	/**
 	 * @param dataRecebimento the dataRecebimento to set
 	 */
-	public void setDataRecebimento(String dataRecebimento) {
+	public void setDataRecebimento(Date dataRecebimento) {
 		this.dataRecebimento = dataRecebimento;
 	}
 

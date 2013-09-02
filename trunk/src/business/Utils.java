@@ -3,8 +3,15 @@ package business;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Classe de funções auxiliares
+ *
+ */
 public class Utils {
 	
+	/**
+	 * Função de resgatar o primeiro dia do mês
+	 */
 	public static Date getPrimeiroDiaMes(Date mes){
 		Calendar comecoMes = Calendar.getInstance();
 		comecoMes.setTime(mes);
@@ -12,6 +19,9 @@ public class Utils {
 		return comecoMes.getTime();
 	}
 	
+	/**
+	 * Função de resgatar o último dia do mês
+	 */
 	public static Date getUltimoDiaMes(Date mes){
 		Calendar finalMes = Calendar.getInstance();
 		finalMes.setTime(mes);

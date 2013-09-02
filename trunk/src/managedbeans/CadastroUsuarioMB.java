@@ -7,6 +7,10 @@ import javax.faces.bean.SessionScoped;
 import business.CadastroUsuarioBS;
 import dominio.Usuario;
 
+/**
+ * Classe que interage com a tela de cadastro de usuário e com a classe de negócio de gerenciamento de usuário
+ *
+ */
 @ManagedBean
 @SessionScoped
 public class CadastroUsuarioMB {
@@ -14,6 +18,10 @@ public class CadastroUsuarioMB {
 	private CadastroUsuarioBS cadastroUsuarioBS;
 	private String nome, email, senha, confirmarSenha;
 
+	/**
+	 * Salva usuário
+	 * @throws Exception
+	 */
 	public String salvarUsuario() throws Exception {
 		Usuario usuario = new Usuario();
 		usuario.setNome(nome);
@@ -29,6 +37,9 @@ public class CadastroUsuarioMB {
 		}
 	}
 
+	/**
+	 * Voltar para a tela de login
+	 */
 	public String voltar() {
 		return "Voltar";
 	}

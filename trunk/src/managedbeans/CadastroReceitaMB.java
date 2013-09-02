@@ -12,6 +12,10 @@ import business.LoginBean;
 import business.ReceitaBS;
 import dominio.Receita;
 
+/**
+ * Classe que interage com a tela de cadastro de receitas e com o gerenciamento de receitas do negocio
+ *
+ */
 @ManagedBean
 @RequestScoped
 public class CadastroReceitaMB {
@@ -26,6 +30,9 @@ public class CadastroReceitaMB {
 	private static SimpleDateFormat df = new SimpleDateFormat("MMM/yyyy");
 	static String mesReferencia = null;
 	
+	/**
+	 * recupea data de referência
+	 */
 	public Date getDataReferencia(){
 		Date data = null;
 		try {
@@ -36,6 +43,10 @@ public class CadastroReceitaMB {
 		return data;
 	}
 
+	/**
+	 * Salvar
+	 * @throws Exception
+	 */
 	public String salvarReceita() throws Exception {
 		Receita receita = new Receita();
 		receita.setTitulo(titulo);
@@ -54,6 +65,9 @@ public class CadastroReceitaMB {
 		}
 	}
 	
+	/**
+	 * Converter data
+	 */
 	private Date converterData() {
 		SimpleDateFormat dateFormat = null;
 		Date data = null;
@@ -71,67 +85,131 @@ public class CadastroReceitaMB {
 		
 		return data;
 	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public float getValor() {
-		return valor;
-	}
 	
-	public void setValor(float valor) {
-		this.valor = valor;
-	}
+	
 
-	public String voltar() {
-		return "Voltar";
-	}
-
-	public String getDataRecebimento() {
-		return dataRecebimento;
-	}
-
-	public void setDataRecebimento(String dataRecebimento) {
-		this.dataRecebimento = dataRecebimento;
-	}
-
+	
+	/**
+	 * @return the receitaBS
+	 */
 	public ReceitaBS getReceitaBS() {
 		return receitaBS;
 	}
 
+	/**
+	 * @param receitaBS the receitaBS to set
+	 */
 	public void setReceitaBS(ReceitaBS receitaBS) {
 		this.receitaBS = receitaBS;
 	}
 
+	/**
+	 * @return the loginBS
+	 */
+	public LoginBean getLoginBS() {
+		return loginBS;
+	}
+
+	/**
+	 * @param loginBS the loginBS to set
+	 */
+	public void setLoginBS(LoginBean loginBS) {
+		this.loginBS = loginBS;
+	}
+
+	/**
+	 * @return the titulo
+	 */
+	public String getTitulo() {
+		return titulo;
+	}
+
+	/**
+	 * @param titulo the titulo to set
+	 */
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	/**
+	 * @return the descricao
+	 */
+	public String getDescricao() {
+		return descricao;
+	}
+
+	/**
+	 * @param descricao the descricao to set
+	 */
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	/**
+	 * @return the dataRecebimento
+	 */
+	public String getDataRecebimento() {
+		return dataRecebimento;
+	}
+
+	/**
+	 * @param dataRecebimento the dataRecebimento to set
+	 */
+	public void setDataRecebimento(String dataRecebimento) {
+		this.dataRecebimento = dataRecebimento;
+	}
+
+	/**
+	 * @return the valor
+	 */
+	public float getValor() {
+		return valor;
+	}
+
+	/**
+	 * @param valor the valor to set
+	 */
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
+	/**
+	 * @return the df
+	 */
 	public static SimpleDateFormat getDf() {
 		return df;
 	}
 
+	/**
+	 * @param df the df to set
+	 */
 	public static void setDf(SimpleDateFormat df) {
 		CadastroReceitaMB.df = df;
 	}
 
-	public String getMesReferencia() {
+	/**
+	 * @return the mesReferencia
+	 */
+	public static String getMesReferencia() {
 		return mesReferencia;
 	}
 
-	public void setMesReferencia(String mesReferencia) {
+	/**
+	 * @param mesReferencia the mesReferencia to set
+	 */
+	public static void setMesReferencia(String mesReferencia) {
 		CadastroReceitaMB.mesReferencia = mesReferencia;
 	}
 
+	
+	/**
+	 * voltar para tela principal
+	 */
+	public String voltar() {
+		return "Voltar";
+	}
+
+	
 	
 	
 

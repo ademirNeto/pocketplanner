@@ -16,6 +16,10 @@ import exception.PocketPlannerRuntimeException;
 //import dao.UsuarioDAO;
 
 
+/**
+ * Classe de cadastro de usuários
+ *
+ */
 @Stateless
 public class CadastroUsuarioBS {
 
@@ -28,6 +32,11 @@ public class CadastroUsuarioBS {
 	public CadastroUsuarioBS () {}
 
 	
+	/**
+	 * Função de cadastrar usuários
+	 * @param usuario
+	 * @throws Exception
+	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarUsuario(Usuario usuario)  throws Exception  {
 		usuario.setSenha(EncriptaSenha.encripta(usuario.getSenha()));

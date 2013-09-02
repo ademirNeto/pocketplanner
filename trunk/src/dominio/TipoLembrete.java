@@ -3,6 +3,11 @@ package dominio;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Classe tipo de lembrete
+ * @author Mariana
+ *
+ */
 @Entity
 public class TipoLembrete {
 	

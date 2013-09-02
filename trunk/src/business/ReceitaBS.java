@@ -11,6 +11,10 @@ import javax.persistence.Query;
 
 import dominio.Receita;
 
+/**
+ * Classe de cadastro e gerenciamento de receitas
+ *
+ */
 @Stateless
 public class ReceitaBS {
 
@@ -22,10 +26,20 @@ public class ReceitaBS {
 	public ReceitaBS() {
 	}
 	
+	/**
+	 * Função de salvar receitas
+	 * @param receita
+	 */
 	public void salvarReceita(Receita receita){
 		manager.persist(receita);
 	}
 	
+	
+	/**
+	 * Função de pesquisar receitas por mês
+	 * @param mes
+	 * @return
+	 */
 	public List<Receita> pesquisarReceitasMes(Date mes){
 		setTotalMes(0);
 		ArrayList<Receita> receitasMes = new ArrayList<Receita> ();
@@ -43,10 +57,18 @@ public class ReceitaBS {
 		return receitasMes;
 	}
 
+	/**
+	 * Função de recuperar o valor total de receitas no mês
+	 * @return totalMes
+	 */
 	public float getTotalMes() {
 		return totalMes;
 	}
 
+	/**
+	 * Função de setar o total de receitas no mês
+	 * @param totalMes
+	 */
 	public void setTotalMes(float totalMes) {
 		this.totalMes = totalMes;
 	}

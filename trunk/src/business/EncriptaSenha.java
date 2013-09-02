@@ -5,8 +5,17 @@ import java.security.NoSuchAlgorithmException;
 
 import sun.misc.BASE64Encoder;
 
+/**
+ * Classe que criptografa as senhas
+ *
+ */
 public class EncriptaSenha {     
 	  
+    /**
+     * Função de criptografas senha
+     * @param senha
+     * @return senha encriptada
+     */
     public static String encripta (String senha) {     
          try {     
               MessageDigest digest = MessageDigest.getInstance("MD5");      

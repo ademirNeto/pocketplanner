@@ -8,6 +8,10 @@ import javax.persistence.Query;
 
 import dominio.Usuario;
 
+/**
+ * Classe que gerencia o login do usuário
+ *
+ */
 @Stateful
 public class LoginBean {
 	
@@ -18,6 +22,13 @@ public class LoginBean {
 	public LoginBean() {
 	}
 	
+	
+	/**
+	 * Função de logar
+	 * @param login
+	 * @param senha
+	 * @return usuario logado
+	 */
 	public Usuario logar(String login, String senha) {
 		
 		Query query = manager.createQuery("select u from Usuario u where u.email = :email", Usuario.class);
@@ -47,13 +58,19 @@ public class LoginBean {
 		return usuarioLogado;
 	}
 	
-
-	public Usuario getUsuarioLogado() {
+	/**
+	 * @return the usuarioLogado
+	 */
+	public static Usuario getUsuarioLogado() {
 		return usuarioLogado;
 	}
 
-	public void setUsuarioLogado(Usuario usuarioLogado) {
-		this.usuarioLogado = usuarioLogado;
+
+	/**
+	 * @param usuarioLogado the usuarioLogado to set
+	 */
+	public static void setUsuarioLogado(Usuario usuarioLogado) {
+		LoginBean.usuarioLogado = usuarioLogado;
 	}
 
 

@@ -163,14 +163,14 @@ public class CadastroDespesaMB {
 	/**
 	 * @return the df
 	 */
-	public static SimpleDateFormat getDf() {
+	public SimpleDateFormat getDf() {
 		return df;
 	}
 
 	/**
 	 * @param df the df to set
 	 */
-	public static void setDf(SimpleDateFormat df) {
+	public void setDf(SimpleDateFormat df) {
 		CadastroDespesaMB.df = df;
 	}
 

@@ -58,7 +58,7 @@ public class DespesaBS {
 	/**
 	 * Função para pesquisar despesas por mês
 	 * @param mes
-	 * @return
+	 * @return despesasMes
 	 */
 	public List<Despesa> pesquisarDespesasMes(Date mes){
 		setTotalMes(0);

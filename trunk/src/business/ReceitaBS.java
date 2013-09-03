@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,6 +23,8 @@ public class ReceitaBS {
 	private EntityManager manager;
 	
 	private float totalMes = 0;
+	@EJB
+	private LoginBean loginBS;
 	
 	public ReceitaBS() {
 	}
@@ -38,17 +41,17 @@ public class ReceitaBS {
 	/**
 	 * Função de pesquisar receitas por mês
 	 * @param mes
-	 * @return
+	 * @return receitasMes
 	 */
 	public List<Receita> pesquisarReceitasMes(Date mes){
 		setTotalMes(0);
 		ArrayList<Receita> receitasMes = new ArrayList<Receita> ();
 		
-		Query query = manager.createQuery("select r from Receita r where r.data_criacao >=:comecoMes and r.data_criacao <= :finalMes", Receita.class);
+		Query query = manager.createQuery("select r from Receita r where r.data_criacao >=:comecoMes and r.data_criacao <= :finalMes and r.usuario = :usuario", Receita.class);
 		
 		query.setParameter("comecoMes", Utils.getPrimeiroDiaMes(mes));
 		query.setParameter("finalMes", Utils.getUltimoDiaMes(mes));
-		
+		query.setParameter("usuario", loginBS.getUsuarioLogado());
 		receitasMes= (ArrayList<Receita>) query.getResultList();
 		for (Receita receita: receitasMes) {
 			setTotalMes(getTotalMes() + receita.getValor());
